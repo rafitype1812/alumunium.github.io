@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produk Baut & Mur | Barokah Aluminium</title>
+  <link rel="stylesheet" href="produk.css" />
+</head>
+<body>
+ <header>
+    <div class="logo">
+      <img src="image/logo ba.png" alt="Logo Barakah" style="height: 40px;">
+      <a href="toko2.html"> Barakah Aluminium</a>
+    </div>
+    <nav>
+      <a href="toko2.html">Beranda</a>
+      <a href="halproduk.html">Produk</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="keranjang.html" class="keranjang-link">
+        🛒 <span id="jumlah-keranjang">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="produk" class="produk">
+    <h1>Katalog Produk Baut, Mur & Ring</h1>
+    <div class="produk-grid">
+      <div class="card">
+        <img src="image/mur1.jpg" alt="Baut Kunci">
+        <h3>Baut Kunci M5x25</h3>
+        <p>Panjang 25mm | 100 pcs</p>
+        <p class="harga">Rp 42.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Baut Kunci M5x25', 42000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/mur2.jpg" alt="Mur Nylon">
+        <h3>Mur Nylon M8</h3>
+        <p>Isi 50 pcs</p>
+        <p class="harga">Rp 27.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Mur Nylon M8', 27000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/mur3.webp" alt="Ring Kuningan">
+        <h3>Ring Kuningan M6</h3>
+        <p>Isi 100 pcs</p>
+        <p class="harga">Rp 24.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Ring Kuningan M6', 24000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/mur4.jpg" alt="Baut Kepala Bulat">
+        <h3>Baut Kepala Bulat M6x40</h3>
+        <p>Panjang 40mm | 100 pcs</p>
+        <p class="harga">Rp 53.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Baut Kepala Bulat M6x40', 53000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/mur4.jpg" alt="Mur Baut Panjang">
+        <h3>Mur Baut Panjang M12</h3>
+        <p>Isi 50 pcs</p>
+        <p class="harga">Rp 40.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Mur Baut Panjang M12', 40000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/mur5.jpg" alt="Ring Baja">
+        <h3>Ring Baja M10</h3>
+        <p>Isi 100 pcs</p>
+        <p class="harga">Rp 26.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Ring Baja M10', 26000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/mur6.jpg" alt="Baut Segi Enam">
+        <h3>Baut Segi Enam M10x60</h3>
+        <p>Panjang 60mm | 100 pcs</p>
+        <p class="harga">Rp 67.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Baut Segi Enam M10x60', 67000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/mur1.jpg" alt="Mur Bulat">
+        <h3>Mur Bulat M5</h3>
+        <p>Isi 100 pcs</p>
+        <p class="harga">Rp 22.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Mur Bulat M5', 22000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/mur2.jpg" alt="Baut Kunci">
+        <h3>Baut Kunci M5x25 (Duplikat)</h3>
+        <p>Panjang 25mm | 100 pcs</p>
+        <p class="harga">Rp 42.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Baut Kunci M5x25 (Duplikat)', 42000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/murnyonm8.jpg" alt="Mur Nylon">
+        <h3>Mur Nylon M8 (Duplikat)</h3>
+        <p>Isi 50 pcs</p>
+        <p class="harga">Rp 27.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Mur Nylon M8 (Duplikat)', 27000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/rkuning.jpg" alt="Ring Kuningan">
+        <h3>Ring Kuningan M6 (Duplikat)</h3>
+        <p>Isi 100 pcs</p>
+        <p class="harga">Rp 24.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Ring Kuningan M6 (Duplikat)', 24000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/bautkepala.jpg" alt="Baut Kepala Bulat">
+        <h3>Baut Kepala Bulat M6x40 (Duplikat)</h3>
+        <p>Panjang 40mm | 100 pcs</p>
+        <p class="harga">Rp 53.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Baut Kepala Bulat M6x40 (Duplikat)', 53000)">🛒 Simpan ke Keranjang</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; © Copyright 2025 || Barakah Alumunium Sukorejo.</p>
+  </footer>
+  
+  <script>
+    function tambahKeKeranjang(namaProduk, hargaProduk) {
+      let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const produkBaru = {
+        nama: namaProduk,
+        harga: hargaProduk
+      };
+      keranjang.push(produkBaru);
+      localStorage.setItem("keranjang", JSON.stringify(keranjang));
+      alert(namaProduk + " telah ditambahkan ke keranjang!");
+      updateJumlahKeranjangNav();
+    }
+
+    function updateJumlahKeranjangNav() {
+      const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const jumlahKeranjangSpan = document.getElementById("jumlah-keranjang");
+      if (jumlahKeranjangSpan) {
+        jumlahKeranjangSpan.textContent = keranjang.length;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", updateJumlahKeranjangNav);
+  </script>
+</body>
+</html>

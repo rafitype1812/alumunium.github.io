@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produk Jasa Pembuatan | Barakah Aluminium</title>
+  <link rel="stylesheet" href="produk.css" />
+</head>
+<body>
+ <header>
+    <div class="logo">
+      <img src="image/logo ba.png" alt="Logo Barakah" style="height: 40px;">
+      <a href="toko2.html"> Barakah Aluminium</a>
+    </div>
+    <nav>
+      <a href="toko2.html">Beranda</a>
+      <a href="halproduk.html">Produk</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="keranjang.html" class="keranjang-link">
+        🛒 <span id="jumlah-keranjang">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="produk" class="produk">
+    <h1>Jasa Pembuatan Aluminium & Kaca</h1>
+    <div class="produk-grid">
+      <div class="card">
+        <img src="image/pembuatan kanopi.png" alt="Jasa Pembuatan Kanopi">
+        <h3>Pembuatan Kanopi Aluminium</h3>
+        <p>Model minimalis & modern, harga mulai dari Rp 500.000/m²</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Lihat Detail</a>
+        </div>
+      <div class="card">
+        <img src="image/pintu.png" alt="Pintu Aluminium">
+        <h3>Pintu Aluminium Kaca</h3>
+        <p>Pintu geser & swing, cocok untuk kantor & rumah</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Lihat Detail</a>
+      </div>
+      <div class="card">
+        <img src="image/etalase.png" alt="Etalase Aluminium">
+        <h3>Etalase Toko Aluminium</h3>
+        <p>Custom ukuran & desain, harga mulai Rp 700.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Lihat Detail</a>
+      </div>
+      <div class="card">
+        <img src="image/jendela.png" alt="Jendela Aluminium">
+        <h3>Jendela Aluminium</h3>
+        <p>Awning & sliding, anti karat & tahan lama</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Lihat Detail</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; © Copyright 2025 || Barakah Alumunium Sukorejo</p>
+  </footer>
+
+  <script>
+    function updateJumlahKeranjangNav() {
+      const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const jumlahKeranjangSpan = document.getElementById("jumlah-keranjang");
+      if (jumlahKeranjangSpan) {
+        jumlahKeranjangSpan.textContent = keranjang.length;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", updateJumlahKeranjangNav);
+  </script>
+</body>
+</html>

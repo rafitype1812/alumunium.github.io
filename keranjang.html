@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <script>
+    // SCRIPT PENJAGA: Cek jika status 'isLoggedIn' tidak ada atau bukan 'true'
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      // Beri tahu pengguna kenapa mereka dipindahkan
+      alert('Anda harus login terlebih dahulu untuk melihat keranjang dan checkout.');
+      // Jika belum login, paksa pindah ke halaman login
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang Belanja | Barakah Aluminium</title>
+  <link rel="stylesheet" href="toko2.css" />
+  <style>
+    .login-prompt {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+    .login-prompt .btn-login {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1.1rem;
+        display: inline-block;
+        margin-top: 15px;
+    }
+    .login-prompt .btn-login:hover {
+        background-color: #0056b3;
+    }
+    #logoutBtn {
+        background-color: #f44336;
+        color:white;
+        border:none;
+        padding: 5px 10px;
+        border-radius:3px;
+        cursor:pointer;
+        margin-left: 10px;
+    }
+    #logoutBtn:hover {
+        background-color: #da190b;
+    }
+    .keranjang-container {
+        padding: 40px 10%;
+        min-height: 60vh;
+    }
+    .keranjang-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2b2e36;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    .keranjang-item-info h3 {
+        margin: 0;
+        color: #fff;
+    }
+    .keranjang-item-info p {
+        margin: 5px 0 0;
+        color: #ffc107;
+        font-weight: bold;
+    }
+    .keranjang-item-actions button {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="image/logo ba.png" alt="Logo Barakah" style="height: 40px;">
+      <a href="toko2.html"> Barakah Aluminium</a>
+    </div>
+    <nav>
+      <a href="toko2.html">Beranda</a>
+      <a href="halproduk.html">Produk</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="keranjang.html" class="keranjang-link active">
+        🛒 <span id="jumlah-keranjang">0</span>
+      </a>
+      <span id="userStatus" style="color: white; margin-left: 20px;"></span>
+      <button id="logoutBtn" style="display:none;">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="keranjang-container">
+      <h1>Keranjang Belanja Anda</h1>
+      <div id="daftar-keranjang">
+        </div>
+      <div id="keranjang-kosong" class="keranjang-kosong" style="display: none;">
+          Keranjang Anda kosong. Yuk, belanja sekarang!
+      </div>
+      <div class="keranjang-summary" id="keranjangSummary">
+        <h2>Total: Rp <span id="total-harga">0</span></h2>
+        <a href="#" target="_blank" class="btn-checkout" id="checkoutBtn">Checkout via WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Copyright 2025 || Barakah Alumunium Sukorejo</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      muatKeranjang();
+      updateUserStatus(); // Panggil ini untuk memastikan status user & tombol logout tampil
+
+      // Event listener untuk logout
+      document.getElementById("logoutBtn").addEventListener("click", function() {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("loggedInUser");
+        localStorage.removeItem("userEmail");
+        alert("Anda telah berhasil logout.");
+        window.location.href = "toko2.html"; // Arahkan ke beranda setelah logout
+      });
+    });
+
+    function muatKeranjang() {
+      const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const daftarKeranjangDiv = document.getElementById("daftar-keranjang");
+      const totalHargaSpan = document.getElementById("total-harga");
+      const keranjangKosongDiv = document.getElementById("keranjang-kosong");
+      const keranjangSummary = document.getElementById("keranjangSummary");
+      
+      let totalHarga = 0;
+      daftarKeranjangDiv.innerHTML = "";
+
+      if (keranjang.length === 0) {
+        keranjangKosongDiv.style.display = "block";
+        keranjangSummary.style.display = 'none';
+      } else {
+        keranjangKosongDiv.style.display = "none";
+        keranjang.forEach((item, index) => {
+          const harga = item.harga || 0;
+          totalHarga += harga;
+
+          const itemDiv = document.createElement("div");
+          itemDiv.classList.add("keranjang-item");
+          itemDiv.innerHTML = `
+            <div class="keranjang-item-info">
+              <h3>${item.nama}</h3>
+              <p>Rp ${harga.toLocaleString('id-ID')}</p>
+            </div>
+            <div class="keranjang-item-actions">
+              <button onclick="hapusDariKeranjang(${index}, '${item.nama}')">Hapus</button>
+            </div>
+          `;
+          daftarKeranjangDiv.appendChild(itemDiv);
+        });
+        keranjangSummary.style.display = 'block';
+      }
+
+      totalHargaSpan.textContent = totalHarga.toLocaleString('id-ID');
+      updateJumlahKeranjangNav();
+      updateCheckoutLink(keranjang, totalHarga);
+    }
+
+    function hapusDariKeranjang(index, namaProduk) {
+      let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const konfirmasi = confirm(`Yakin ingin menghapus "${namaProduk}" dari keranjang?`);
+      if (konfirmasi) {
+        keranjang.splice(index, 1);
+        localStorage.setItem("keranjang", JSON.stringify(keranjang));
+        muatKeranjang();
+      }
+    }
+
+    function updateJumlahKeranjangNav() {
+      const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const jumlahKeranjangSpan = document.getElementById("jumlah-keranjang");
+      if (jumlahKeranjangSpan) {
+        jumlahKeranjangSpan.textContent = keranjang.length;
+      }
+    }
+
+    function updateCheckoutLink(keranjang, totalHarga) {
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        if (checkoutBtn) {
+            let message = "Halo Barakah Aluminium, saya ingin memesan barang dari keranjang saya:\n\n";
+            keranjang.forEach((item, index) => {
+                message += `${index + 1}. ${item.nama} (Rp ${item.harga.toLocaleString('id-ID')})\n`;
+            });
+            message += `\nTotal Harga: Rp ${totalHarga.toLocaleString('id-ID')}`;
+            
+            const loggedInUser = localStorage.getItem("loggedInUser") || "Pelanggan";
+            const userEmail = localStorage.getItem("userEmail") || "Tidak ada email";
+            message += `\n\nData Pemesan:\nNama: ${loggedInUser}\nEmail: ${userEmail}`;
+
+            checkoutBtn.href = `https://wa.me/6283107819553?text=${encodeURIComponent(message)}`;
+        }
+    }
+
+    function updateUserStatus() {
+        const userStatusSpan = document.getElementById("userStatus");
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            const username = localStorage.getItem("loggedInUser") || "Pengguna";
+            userStatusSpan.textContent = `Halo, ${username}!`;
+            logoutBtn.style.display = "inline-block";
+        } else {
+            userStatusSpan.textContent = "";
+            logoutBtn.style.display = "none";
+        }
+    }
+  </script>
+</body>
+</html>

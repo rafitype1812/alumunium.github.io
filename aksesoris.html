@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produk Aksesoris | Barakah Aluminium</title>
+  <link rel="stylesheet" href="produk.css" />
+</head>
+<body>
+ <header>
+    <div class="logo">
+      <img src="image/logo ba.png" alt="Logo Barakah" style="height: 40px;">
+      <a href="toko2.html"> Barokah Aluminium</a>
+    </div>
+    <nav>
+      <a href="toko2.html">Beranda</a>
+      <a href="halproduk.html">Produk</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="keranjang.html" class="keranjang-link">
+        🛒 <span id="jumlah-keranjang">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="produk" class="produk">
+    <h1>Katalog Produk Aksesoris</h1>
+    <div class="produk-grid">
+      <div class="card">
+        <img src="image/handleputih.jpg" alt="handleputih">
+        <h3>Handle Pintu Putih Bulat</h3>
+        <p>Satuan</p>
+        <p class="harga">Rp 85.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Handle Pintu Putih Bulat', 85000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/handelhitam.jpg" alt="Mur Nylon">
+        <h3>Handle Pintu Hitam Bulat</h3>
+        <p>Satuan</p>
+        <p class="harga">Rp 85.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Handle Pintu Hitam Bulat', 85000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/handlesilver.jpg" alt="Ring Kuningan">
+        <h3>Handle Pintu Silver Bulat</h3>
+        <p>Satuan</p>
+        <p class="harga">Rp 85.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Handle Pintu Silver Bulat', 85000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/guntingplat.png" alt="Baut Kepala Bulat">
+        <h3>Gunting Plat</h3>
+        <p>Satuan</p>
+        <p class="harga">Rp 53.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Gunting Plat', 53000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/handlesilver.jpg" alt="Mur Baut Panjang">
+        <h3>Handle Pintu Silver Bulat (Isi 50 pcs)</h3>
+        <p>Isi 50 pcs</p>
+        <p class="harga">Rp 40.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Handle Pintu Silver Bulat (Isi 50 pcs)', 40000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/hanputihkotak.jpg" alt="Ring Baja">
+        <h3>Handle Pintu Silver Bulat (Isi 100 pcs)</h3>
+        <p>Isi 100 pcs</p>
+        <p class="harga">Rp 26.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Handle Pintu Silver Bulat (Isi 100 pcs)', 26000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/hanhitamkotak.jpg" alt="Baut Segi Enam">
+        <h3>Handle Pintu Silver Bulat (Panjang 60mm | 100 pcs)</h3>
+        <p>Panjang 60mm | 100 pcs</p>
+        <p class="harga">Rp 67.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Handle Pintu Silver Bulat (Panjang 60mm | 100 pcs)', 67000)">🛒 Simpan ke Keranjang</button>
+      </div>
+      <div class="card">
+        <img src="image/stainlis.png" alt="Mur Bulat">
+        <h3>Stainless</h3>
+        <p>Satuan</p>
+        <p class="harga">Rp 120.000</p>
+        <a href="https://wa.me/6283107819553" target="_blank" class="btn btn-orange">Pesan</a>
+        <button class="btn-keranjang" onclick="tambahKeKeranjang('Stainless', 120000)">🛒 Simpan ke Keranjang</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; © Copyright 2025 || Barakah Alumunium Sukorejo.</p>
+  </footer>
+
+  <script>
+    function tambahKeKeranjang(namaProduk, hargaProduk) {
+      let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const produkBaru = {
+        nama: namaProduk,
+        harga: hargaProduk
+      };
+      keranjang.push(produkBaru);
+      localStorage.setItem("keranjang", JSON.stringify(keranjang));
+      alert(namaProduk + " telah ditambahkan ke keranjang!");
+      updateJumlahKeranjangNav();
+    }
+
+    function updateJumlahKeranjangNav() {
+      const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const jumlahKeranjangSpan = document.getElementById("jumlah-keranjang");
+      if (jumlahKeranjangSpan) {
+        jumlahKeranjangSpan.textContent = keranjang.length;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", updateJumlahKeranjangNav);
+  </script>
+</body>
+</html>

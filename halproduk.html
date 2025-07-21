@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Produk - Barakah Aluminium</title>
+  <link rel="stylesheet" href="toko2.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="image/logo ba.png" alt="Logo Barakah" style="height: 40px;">
+      <a href="toko2.html"> Barakah Aluminium</a>
+    </div>
+    <nav>
+      <a href="toko2.html">Beranda</a>
+      <a href="halproduk.html">Produk</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="keranjang.html" class="keranjang-link">
+        🛒 <span id="jumlah-keranjang">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <section id="produk" class="produk">
+    <h2>Kategori Produk</h2>
+    <div class="produk-grid">
+      <div class="card">
+        <a href="alumunium.html">
+          <img src="image/alumunium.png" alt="Aluminium Lembaran">
+          <p>Alumunium</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="aksesoris.html">
+          <img src="image/aksesoris.png" alt="Aksesoris">
+          <p>Aksesoris</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="kaca.html">
+          <img src="image/kaca.avif" alt="Kaca">
+          <p>Kaca</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="bautmur.html">
+          <img src="image/baut.png" alt="Baut">
+          <p>Baut Mur & Ring</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="jasa.html">
+          <img src="image/tukang.png" alt="Jasa Pembuatan">
+          <p>Jasa Pembuatan</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Barakah Aluminium</p>
+  </footer>
+
+  <script>
+    function updateJumlahKeranjangNav() {
+      const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const jumlahKeranjangSpan = document.getElementById("jumlah-keranjang");
+      if (jumlahKeranjangSpan) {
+        jumlahKeranjangSpan.textContent = keranjang.length;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", updateJumlahKeranjangNav);
+  </script>
+</body>
+</html>

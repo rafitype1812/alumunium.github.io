@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak - Barokah Aluminium</title>
+  <link rel="stylesheet" href="kontak.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="image\logo ba.png" alt="Logo Barakah" style="height: 40px;">
+      <a href="toko2.html"> Barakah Aluminium</a>
+    </div>
+    <nav>
+      <a href="toko2.html">Beranda</a>
+      <a href="halproduk.html">Produk</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html" class="active">Kontak</a>
+      <a href="keranjang.html" class="keranjang-link">
+        🛒 <span id="jumlah-keranjang">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="kontak-page">
+    <section class="intro">
+      <h1>Hubungi Kami</h1>
+      <p>
+        Kami siap membantu Anda! Untuk pertanyaan, pemesanan, atau konsultasi proyek aluminium dan konstruksi, silakan hubungi kami melalui formulir di bawah atau langsung ke kontak kami.
+      </p>
+    </section>
+
+    <section class="kontak-info">
+      <h2>Informasi Kontak</h2>
+      <ul>
+        <li>📍 <strong>Alamat:</strong> Barokah Aluminium Sukorejo, Beteng, Kendal, Jawa Tengah 51363</li>
+        <iframe src="http://googleusercontent.com/maps/embed?pb=!1m18!1m12!1m3!1d15830.490899479326!2d110.150117!3d-7.067341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDQnMzQuMiJTIDExMMKwMDknMDEuMiJF!5e0!3m2!1sen!2sid!4v1678901234567" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <li>📞 <strong>Telepon:</strong> <a href="tel:083107819553">0831-0781-9553</a></li>
+        <li>✉️ <strong>Email:</strong> <a href="mailto:barokahalumunium@gmail.com">barokahalumunium@gmail.com</a></li>
+        <li>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/6283107819553" target="_blank">Chat via WhatsApp</a></li>
+      </ul>
+    </section>
+    
+    <section class="kontak-box">
+      <h3>Ingin Bertanya atau Konsultasi?</h3>
+      <p>Hubungi kami sekarang untuk mendapatkan informasi lebih lanjut mengenai produk dan layanan Barakah Aluminium.</p>
+      <a href="https://wa.me/6283107819553" target="_blank">📱 Hubungi via WhatsApp</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Copyright 2025 || Barakah Alumunium Sukorejo</p>
+  </footer>
+  
+  <script>
+    function updateJumlahKeranjangNav() {
+      const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const jumlahKeranjangSpan = document.getElementById("jumlah-keranjang");
+      if (jumlahKeranjangSpan) {
+        jumlahKeranjangSpan.textContent = keranjang.length;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", updateJumlahKeranjangNav);
+  </script>
+</body>
+</html>
